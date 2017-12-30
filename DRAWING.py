@@ -47,7 +47,10 @@ trees.color('#654321')
 cloud = Turtle()
 
 turtles = [grass,sky,mountain,trees,cloud,lake,tuft,cut]
+
 """
+extends Turtle.penup() for all turtles in script. Makes sure that no marks are
+made before pen moves.
 
 """
 def penup():
@@ -55,31 +58,41 @@ def penup():
         i.penup()
 
 """
-
+Extends Turtle.pendown() for all turtles in script. Makes sure that all pens are
+down before movement and marking starts.
 """
 def pendown():
     for i in turtles:
         i.pendown()
 
 """
-
+Extends Turtle.speed(int x) and sets the speed for all turtles in script to
+fastest. Sets all turtles to hidden, which will observably speed up the script.
 """
 def speed():
     for i in turtles:
         i.speed(0)
         i.hideturtle()
 
-
+# Enum for access to hex numerals
 hexnum = ["1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
 
+# Calls penup() to make sure all pens are up before moving the start point.
 penup()
+# Moves sky turtle to starting point
 sky.goto(-200,-200)
+# Sets all pens down, prep for sky to begin
 pendown()
 
+# enum for diifferent possible colors of sky. Used to gradient the sky as the
+# turtles move vertically.
 skycol = ['add8e6','b5d8e5','bdd8e4','c5d8e3','cdd8e3','d6d8e2','ded8e1','e6d8e1','eed8e0','f6d8df','ffd9df']
 
 """
+Method which draws the sky on the canvas.
 
+loops through the skycol enum and paints the sky to canvas using the different
+colors.
 """
 def drawsky():
     print("Drawing sky")
@@ -98,6 +111,8 @@ def drawsky():
         sky.right(90)
 
 """
+Method which draws mountains on canvas.
+
 
 """
 def drawmountains():
@@ -170,6 +185,7 @@ browns = ['#7a5230','#614126','#49311c','#302013','#181009']
 greens = ['#004000','#003300','#002600','#001900','#004c00']
 
 """
+Method which draws grass on canvas.
 
 """
 def drawgrass(amount,locx,locy):
@@ -195,6 +211,8 @@ def drawgrass(amount,locx,locy):
 
 
 """
+Method which draws trees on canvas
+
 
 """
 def drawtrees():
@@ -299,6 +317,7 @@ def drawtrees():
         treees(temph)
 
 """
+Method which draws clouds on canvas
 
 """
 def clouddraw():
@@ -336,6 +355,7 @@ def clouddraw():
 
 
 """
+Method which draws the lake on canvas
 
 """
 def lakedraw():
@@ -377,6 +397,7 @@ def lakedraw():
     lake.end_fill()
 
 """
+Method which draws lillies on canvas
 
 """
 def lilypads(amount):
@@ -395,6 +416,7 @@ def lilypads(amount):
             lily.pensize(7-i)
 
 """
+Method which draws the border and cuts the painting
 
 """
 def cutdraw():

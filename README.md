@@ -10,11 +10,11 @@ paintings using Python 3.6.x, using the Turtle and Random libraries.
 - Code cleanup
 - Finish adding comments
 - Tweak var and method names for legibility
-- possible speed increases 
+- possible speed increases
 
 ### Contributing
 See contributing
 
 ### Credits
-- Razzledazz (), Original author
-- Ziggi24(), code comments, clean up, QoL updates
+- Razzledazz (https://github.com/razzledazze), Original author
+- Ziggi24 (https://github.com/ziggi24), code comments, clean up, QoL updates
