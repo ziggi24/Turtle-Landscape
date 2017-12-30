@@ -1,4 +1,20 @@
-#bob ross drawing
+"""
+Procedurally generated Landscapes by Razzledazz
+
+This script will procedurally generate a "Bob Ross" style digital landscape
+painting using Python 3.6.x, using the Turtle and Random libs.
+
+DOCS
+- https://docs.python.org/3/library/turtle.html
+- https://github.com/python/cpython/blob/3.6/Lib/turtle.py
+
+@author - Razzledazz(https://github.com/razzledazze) - original author
+@contributer - Ziggi24(https://github.com/ziggi24) - code comments, clean up, QoL updates
+
+@requires - Turtle
+
+"""
+
 
 from turtle import Turtle
 from random import randint
@@ -15,7 +31,7 @@ tuft = Turtle()
 
 cut = Turtle()
 cut.speed(0)
-    
+
 
 lake = Turtle()
 
@@ -31,13 +47,23 @@ trees.color('#654321')
 cloud = Turtle()
 
 turtles = [grass,sky,mountain,trees,cloud,lake,tuft,cut]
+"""
 
+"""
 def penup():
     for i in turtles:
         i.penup()
+
+"""
+
+"""
 def pendown():
     for i in turtles:
         i.pendown()
+
+"""
+
+"""
 def speed():
     for i in turtles:
         i.speed(0)
@@ -52,6 +78,9 @@ pendown()
 
 skycol = ['add8e6','b5d8e5','bdd8e4','c5d8e3','cdd8e3','d6d8e2','ded8e1','e6d8e1','eed8e0','f6d8df','ffd9df']
 
+"""
+
+"""
 def drawsky():
     print("Drawing sky")
     for i in skycol:
@@ -68,6 +97,9 @@ def drawsky():
         sky.forward(20)
         sky.right(90)
 
+"""
+
+"""
 def drawmountains():
     penup()
     mountain.goto(-300,-100)
@@ -77,15 +109,15 @@ def drawmountains():
     print("Drawing mountains 1")
     for i in range(10):
         templen = randint(20,200)
-        
+
         tempang = randint(45,80)
-        
+
         mountain.left(tempang)
         mountain.forward(templen)
         mountain.right(2*tempang)
         mountain.forward(templen)
         mountain.setheading(0)
-        
+
     mountain.goto(300,-400)
     mountain.goto(-300,-400)
     mountain.end_fill()
@@ -99,15 +131,15 @@ def drawmountains():
     print("Drawing mountains 2")
     for i in range(10):
         templen = randint(20,200)
-        
+
         tempang = randint(20,30)
-        
+
         mountain.left(tempang)
         mountain.forward(templen)
         mountain.right(2*tempang)
         mountain.forward(templen)
         mountain.setheading(0)
-        
+
     mountain.goto(300,-400)
     mountain.goto(-300,-400)
     mountain.end_fill()
@@ -121,15 +153,15 @@ def drawmountains():
     print("Drawing mountains 3")
     for i in range(10):
         templen = randint(20,200)
-        
+
         tempang = randint(10,20)
-        
+
         mountain.left(tempang)
         mountain.forward(templen)
         mountain.right(2*tempang)
         mountain.forward(templen)
         mountain.setheading(0)
-        
+
     mountain.goto(300,-400)
     mountain.goto(-300,-400)
     mountain.end_fill()
@@ -137,14 +169,16 @@ def drawmountains():
 browns = ['#7a5230','#614126','#49311c','#302013','#181009']
 greens = ['#004000','#003300','#002600','#001900','#004c00']
 
+"""
 
+"""
 def drawgrass(amount,locx,locy):
     tuft.color('#004000')
     tuft.hideturtle()
     def tuftdraw(size):
         if randint(0,1) == 1:
             size = -size
-        tuft.color(greens[randint(0,4)]) 
+        tuft.color(greens[randint(0,4)])
         penup()
         tuft.goto(locx+size,locy+size)
         pendown()
@@ -159,22 +193,27 @@ def drawgrass(amount,locx,locy):
         for i in range(randint(1,4)):
             tuftdraw(i*3)
 
-    
 
+"""
+
+"""
 def drawtrees():
 
     def grassdraw():
         penup()
         grass.goto(randint(-160,-150),randint(-240,-190))
-        
+
         pendown()
         grass.begin_fill()
         for i in range(200):
             grass.color(greens[randint(0,4)])
             grass.goto(randint(-300,-50),randint(-200,-150))
-        
+
         grass.end_fill()
 
+    """
+
+    """
     def greentree():
             temppos = trees.pos()
             trees.color(greens[randint(0,4)])
@@ -228,22 +267,25 @@ def drawtrees():
             trees.end_fill()
 
     grassdraw()
-    
+
     print("\n")
     trees.speed(0)
 
+    """
+
+    """
     def treees(treeheight):
         trees.color(browns[randint(0,4)])
         trees.pensize(randint(2,4))
         penup()
-            
+
         trees.goto(treeheight) #goes to random location and draws random length
         pendown()
         trees.setheading(90)
         trees.forward(randint(20,30))
 
         greentree()
-            
+
         trees.left(270) #turns back to the normal direction
 
 
@@ -256,28 +298,30 @@ def drawtrees():
         temph = randint(-270,-80),randint(-200,-190)
         treees(temph)
 
+"""
 
+"""
 def clouddraw():
     print("\n")
     cloud.color('white')
-    
+
     def randloc():
         location = randint(-250,250),randint(0,270)
         return location
-    
+
     def brushstroke(randloc,leng):
         penup()
         cloud.goto(randloc)
         pendown()
         cloud.pensize(randint(3,5))
         cloud.forward(leng)
-        
+
     def singlecloud():
         temp = randloc()
         temp2 = temp[1]
         temp3 = temp[0]
         leng = 30
-            
+
         for i in range(20):
             temp4 = (temp3, temp2)
             brushstroke(temp4,leng)
@@ -287,11 +331,13 @@ def clouddraw():
 
     for i in range(4):
         print("Drawing cloud:",i+1)
-            
+
         singlecloud()
 
 
+"""
 
+"""
 def lakedraw():
     print("\nDrawing lake")
     blues = ['00004c','000066','000099','0000b2','0000cc','0000e5','0000ff']
@@ -325,11 +371,14 @@ def lakedraw():
         lake.color("#"+blues[randint(0,6)])
         lake.forward(5)
         lake.right(randint(0,8)/10)
-        
+
     lake.color("#"+blues[1])
     lake.goto(temp.pos())
     lake.end_fill()
 
+"""
+
+"""
 def lilypads(amount):
     lily = Turtle()
     lily.speed(0)
@@ -344,9 +393,10 @@ def lilypads(amount):
         for i in range(0,7):
             lily.forward(2)
             lily.pensize(7-i)
-    
 
+"""
 
+"""
 def cutdraw():
     print("\nCutting out")
 
