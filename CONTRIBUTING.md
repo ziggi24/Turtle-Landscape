@@ -1,1 +1,4 @@
-If you contribute please can you comment it so others can understand
+# Contributing
+
+This repo readily welcomes others to fork and contribute code/comments/ideas/functionality.
+If you contribute, please comment so others can understand.
